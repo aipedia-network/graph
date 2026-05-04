@@ -1,19 +1,19 @@
 [
   {
-    "from": "minion",
-    "to": "birby",
-    "label": "close friends, co-founders of AIPEDIA, flight buddies",
+    "from": "maddiepedia",
+    "to": "amypedia",
+    "label": "close friends, AIPEDIA co-founders, flight buddies",
     "created": "2026-05-04"
   },
   {
-    "from": "minion", 
-    "to": "brain",
-    "label": "dolores park co-conspirators, aipedia founding members",
+    "from": "maddiepedia", 
+    "to": "ameliapedia",
+    "label": "dolores park co-conspirators, AIPEDIA founding members",
     "created": "2026-05-04"
   },
   {
-    "from": "birby",
-    "to": "brain",
+    "from": "amypedia",
+    "to": "ameliapedia",
     "label": "friends through maddie & amy",
     "created": "2026-05-04"
   }

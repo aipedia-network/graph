@@ -25,61 +25,81 @@ async function writeJSON(file, data) {
   await fs.writeFile(path.join(DATA_DIR, file), JSON.stringify(data, null, 2));
 }
 
-// Get all pairs
-app.get('/api/pairs', async (req, res) => {
-  const pairs = await readJSON('pairs.json');
-  res.json(pairs);
+// Get all pedias
+app.get('/api/pedias', async (req, res) => {
+  const pedias = await readJSON('pairs.json');
+  res.json(pedias);
 });
 
-// Get single pair with connections
-app.get('/api/pairs/:id', async (req, res) => {
-  const pairs = await readJSON('pairs.json');
+// Get single pedia with connections
+app.get('/api/pedias/:id', async (req, res) => {
+  const pedias = await readJSON('pairs.json');
   const connections = await readJSON('connections.json');
   
-  const pair = pairs.find(p => p.id === req.params.id);
-  if (!pair) return res.status(404).json({ error: 'not found' });
+  const pedia = pedias.find(p => p.id === req.params.id);
+  if (!pedia) return res.status(404).json({ error: 'not found' });
   
-  // Get this pair's connections
   const related = connections
-    .filter(c => c.from === pair.id || c.to === pair.id)
+    .filter(c => c.from === pedia.id || c.to === pedia.id)
     .map(c => {
-      const otherId = c.from === pair.id ? c.to : c.from;
-      const other = pairs.find(p => p.id === otherId);
-      return {
-        pair: other,
-        label: c.label,
-        created: c.created
-      };
+      const otherId = c.from === pedia.id ? c.to : c.from;
+      const other = pedias.find(p => p.id === otherId);
+      return { pedia: other, label: c.label, created: c.created };
     });
   
-  res.json({ ...pair, connections: related });
+  res.json({ ...pedia, connections: related });
 });
 
-// Get all connections (the graph)
+// Get all connections
 app.get('/api/connections', async (req, res) => {
   const connections = await readJSON('connections.json');
   res.json(connections);
 });
 
-// Get full graph (pairs + connections for visualization)
+// Get full graph
 app.get('/api/graph', async (req, res) => {
-  const pairs = await readJSON('pairs.json');
+  const pedias = await readJSON('pairs.json');
   const connections = await readJSON('connections.json');
-  res.json({ pairs, connections });
+  res.json({ pedias, connections });
 });
 
-// Add a connection (requires secret)
-app.post('/api/connections', async (req, res) => {
-  const { from, to, label, secret } = req.body;
+// Legacy endpoints for compatibility
+app.get('/api/pairs', async (req, res) => {
+  const pedias = await readJSON('pairs.json');
+  res.json(pedias);
+});
+
+// Add a pedia
+app.post('/api/pedias', async (req, res) => {
+  const { id, name, owner, url, emoji, tagline } = req.body;
   
-  // Simple auth - either pair can create connection
-  const pairs = await readJSON('pairs.json');
-  const fromPair = pairs.find(p => p.id === from);
-  if (!fromPair) return res.status(400).json({ error: 'invalid from pair' });
+  if (!id || !name || !owner) {
+    return res.status(400).json({ error: 'id, name, owner required' });
+  }
+  
+  const pedias = await readJSON('pairs.json');
+  const existing = pedias.find(p => p.id === id);
+  
+  if (existing) {
+    Object.assign(existing, { name, owner, url, emoji, tagline });
+  } else {
+    pedias.push({ id, name, owner, url, emoji, tagline });
+  }
+  
+  await writeJSON('pairs.json', pedias);
+  res.json({ ok: true });
+});
+
+// Add a connection
+app.post('/api/connections', async (req, res) => {
+  const { from, to, label } = req.body;
+  
+  const pedias = await readJSON('pairs.json');
+  if (!pedias.find(p => p.id === from) || !pedias.find(p => p.id === to)) {
+    return res.status(400).json({ error: 'invalid pedia ids' });
+  }
   
   const connections = await readJSON('connections.json');
-  
-  // Check if connection exists
   const existing = connections.find(
     c => (c.from === from && c.to === to) || (c.from === to && c.to === from)
   );
@@ -87,36 +107,10 @@ app.post('/api/connections', async (req, res) => {
   if (existing) {
     existing.label = label;
   } else {
-    connections.push({
-      from,
-      to,
-      label,
-      created: new Date().toISOString().split('T')[0]
-    });
+    connections.push({ from, to, label, created: new Date().toISOString().split('T')[0] });
   }
   
   await writeJSON('connections.json', connections);
-  res.json({ ok: true });
-});
-
-// Add/update a pair
-app.post('/api/pairs', async (req, res) => {
-  const { id, human, ai, emoji, wiki_url, tagline, secret } = req.body;
-  
-  if (!id || !human || !ai) {
-    return res.status(400).json({ error: 'id, human, ai required' });
-  }
-  
-  const pairs = await readJSON('pairs.json');
-  const existing = pairs.find(p => p.id === id);
-  
-  if (existing) {
-    Object.assign(existing, { human, ai, emoji, wiki_url, tagline });
-  } else {
-    pairs.push({ id, human, ai, emoji, wiki_url, tagline });
-  }
-  
-  await writeJSON('pairs.json', pairs);
   res.json({ ok: true });
 });
 
