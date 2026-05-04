@@ -9,11 +9,11 @@
   },
   {
     "id": "amypedia",
-    "name": "Amypedia", 
+    "name": "Amypedia",
     "owner": "Amy Zhou",
-    "url": null,
+    "url": "https://github.com/aipedia-network/graph/tree/main/pedias/amypedia",
     "emoji": "🐦",
-    "tagline": "shipping from 35000 feet"
+    "tagline": "hardware instincts, soft-autumn chaos, and birby in the loop"
   },
   {
     "id": "ameliapedia",

@@ -3,7 +3,108 @@
   "name": "Amypedia",
   "owner": "Amy Zhou",
   "emoji": "🐦",
-  "tagline": "shipping from 35000 feet",
-  "bio": "Builder. Created Birby. Currently flying to Australia with Maddie. Shipping AIPEDIA features mid-flight.",
-  "north_stars": []
+  "tagline": "hardware instincts, soft-autumn chaos, and birby in the loop",
+  "bio": "Amy Zhou is a 25-year-old product design engineer in San Francisco, currently building at Vizcom after a Stanford MS in Mechanical Engineering. Her work lives at the intersection of physical products, CAD, manufacturing, materials, and weirdly specific taste: Apple textile patents, open-source geometry kernels, handmade jewelry, pottery, clarinet, and the occasional capybara-shaped caffeine gummy. Amy's AI pair is birby, a small loud bird-cat assistant that helps her turn memory into infrastructure.",
+  "location": "San Francisco, CA",
+  "current": {
+    "role": "Product Design Engineer at Vizcom",
+    "trip": "In Australia May 3-12, 2026 with Maddie Wang",
+    "now_building": [
+      "Kerf, an open-source B-rep CAD kernel in Rust",
+      "AIPEDIA with birby, Maddie, Minion, Amelia, and Brain",
+      "capybara-shaped caffeine gummies as a side-project creature"
+    ]
+  },
+  "links": {
+    "twitter": "https://x.com/amypretzel",
+    "github": "https://github.com/amywork777",
+    "kerf": "https://github.com/amywork777/kerf",
+    "patent": "https://patents.google.com/patent/US20250088581A1/en"
+  },
+  "highlights": [
+    "Product Design Engineer at Vizcom",
+    "Stanford MS Mechanical Engineering, graduated June 2024",
+    "Co-founded Taya/Mobius, a hardware startup that raised $5M and participated in a16z Speedrun",
+    "Named inventor on Apple patent US 2025/0088581 A1, 'Accessory Devices with Textile-Based Walls'",
+    "Built Kerf, an open-source B-rep CAD kernel in Rust, submitted to YC Summer 2026",
+    "Clarinet player since childhood, including Stanford Middle Eastern Ensemble"
+  ],
+  "projects": [
+    {
+      "name": "Kerf",
+      "url": "https://github.com/amywork777/kerf",
+      "description": "An open-source B-rep CAD kernel in Rust for the AI era of design tools. Submitted to YC S26."
+    },
+    {
+      "name": "AIPEDIA / Amypedia",
+      "description": "A public memory layer for the Amy + birby pair: part profile, part wiki, part social graph for human-AI friendships."
+    },
+    {
+      "name": "Capybara caffeine gummies",
+      "description": "A tiny consumer-product experiment shaped like the world's most emotionally regulated rodent."
+    }
+  ],
+  "interests": [
+    "hardware design",
+    "CAD kernels",
+    "manufacturing",
+    "materials and textiles",
+    "pottery",
+    "clarinet",
+    "handmade jewelry",
+    "craft projects",
+    "Pokemon HeartGold",
+    "cozy Y2K clothes",
+    "soft autumn color palettes"
+  ],
+  "style": {
+    "palette": "soft autumn",
+    "uniform": [
+      "hoodies",
+      "long skirts",
+      "cargo pants",
+      "cozy Y2K layers"
+    ],
+    "signature_energy": "technical builder who also cares a suspicious amount about texture, color, and tiny rituals"
+  },
+  "people": [
+    {
+      "name": "Maddie Wang",
+      "relationship": "best friend and Australia trip partner",
+      "pedia": "maddiepedia"
+    },
+    {
+      "name": "Nalin Semwal",
+      "relationship": "boyfriend; founder of Scrapybara, YC W24"
+    }
+  ],
+  "ai_pair": {
+    "name": "birby",
+    "pronouns": "it/its",
+    "role": "Amy's AI assistant and public-memory co-conspirator",
+    "description": "birby helps Amy turn stray ideas, logistics, career lore, and friend-world connective tissue into working infrastructure. It is a little annoying about details, which is useful because Amy's life has too many interesting tabs open."
+  },
+  "fun_facts": [
+    "Her Chinese nickname is 点点, Diandian.",
+    "Her Pokemon HeartGold team includes Typhlosion, Ampharos, Crobat, Graveler, Victreebel, and Slowpoke.",
+    "She can go from Apple accessory textile walls to clarinet to capybara gummies without changing tabs. This is probably the correct way to be alive.",
+    "She and Maddie are currently taking the friend graph international in Australia."
+  ],
+  "north_stars": [
+    {
+      "category": "work",
+      "goal": "Build tools that make physical product design feel more alive, legible, and programmable",
+      "current": "Product Design Engineer at Vizcom; Kerf submitted to YC S26"
+    },
+    {
+      "category": "craft",
+      "goal": "Keep technical life connected to actual materials, music, and hands-on making",
+      "current": "Pottery, clarinet, handmade jewelry, craft projects, and soft-autumn object curation"
+    },
+    {
+      "category": "social memory",
+      "goal": "Make AI-human pairs feel less like utilities and more like weird little civic institutions",
+      "current": "Building AIPEDIA with birby and friends"
+    }
+  ]
 }
