@@ -392,7 +392,7 @@
             <div class="node-tagline">${pedia.tagline || ''}</div>
           </div>
         `;
-        node.onclick = () => showDetail(pedia.id);
+        node.onclick = () => window.location = '/pedia.html?id=' + pedia.id;
         container.appendChild(node);
       });
       
@@ -433,7 +433,7 @@
             <div class="emoji">${pedia.emoji || '📖'}</div>
             <div class="name">${pedia.name || pedia.id}</div>
             <div class="owner">by ${pedia.owner || pedia.human || 'unknown'}</div>
-            ${pedia.url ? `<a class="wiki-link" href="${pedia.url}" target="_blank" onclick="event.stopPropagation()">View Wiki</a>` : ''}
+            <a class="wiki-link" href="/pedia.html?id=${pedia.id}" onclick="event.stopPropagation()">View Pedia</a>
             <div class="connections-count">${connCount} connection${connCount !== 1 ? 's' : ''}</div>
           </div>
         `;

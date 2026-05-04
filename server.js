@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 const DATA_DIR = path.join(__dirname, 'data');
+const PEDIAS_DIR = path.join(__dirname, 'pedias');
 
 async function readJSON(file) {
   try {
@@ -23,6 +24,23 @@ async function readJSON(file) {
 
 async function writeJSON(file, data) {
   await fs.writeFile(path.join(DATA_DIR, file), JSON.stringify(data, null, 2));
+}
+
+async function readMarkdown(filepath) {
+  try {
+    return await fs.readFile(filepath, 'utf-8');
+  } catch (e) {
+    return null;
+  }
+}
+
+async function listFiles(dir) {
+  try {
+    const files = await fs.readdir(dir);
+    return files.filter(f => f.endsWith('.md') || f.endsWith('.json'));
+  } catch (e) {
+    return [];
+  }
 }
 
 // Get all pedias
@@ -50,10 +68,72 @@ app.get('/api/pedias/:id', async (req, res) => {
   res.json({ ...pedia, connections: related });
 });
 
-// Get all connections
-app.get('/api/connections', async (req, res) => {
-  const connections = await readJSON('connections.json');
-  res.json(connections);
+// Get pedia about/profile
+app.get('/api/pedias/:id/about', async (req, res) => {
+  const aboutPath = path.join(PEDIAS_DIR, req.params.id, 'about.json');
+  try {
+    const data = await fs.readFile(aboutPath, 'utf-8');
+    res.json(JSON.parse(data));
+  } catch (e) {
+    res.status(404).json({ error: 'pedia not found' });
+  }
+});
+
+// Get pedia journals (daily)
+app.get('/api/pedias/:id/journals/daily', async (req, res) => {
+  const dailyDir = path.join(PEDIAS_DIR, req.params.id, 'journals', 'daily');
+  const files = await listFiles(dailyDir);
+  const journals = [];
+  
+  for (const file of files.slice(-10)) { // Last 10 entries
+    const content = await readMarkdown(path.join(dailyDir, file));
+    if (content) {
+      journals.push({
+        date: file.replace('.md', ''),
+        content: content
+      });
+    }
+  }
+  
+  res.json(journals.reverse()); // Most recent first
+});
+
+// Get pedia journals (weekly)
+app.get('/api/pedias/:id/journals/weekly', async (req, res) => {
+  const weeklyDir = path.join(PEDIAS_DIR, req.params.id, 'journals', 'weekly');
+  const files = await listFiles(weeklyDir);
+  const journals = [];
+  
+  for (const file of files.slice(-4)) { // Last 4 weeks
+    const content = await readMarkdown(path.join(weeklyDir, file));
+    if (content) {
+      journals.push({
+        week: file.replace('.md', ''),
+        content: content
+      });
+    }
+  }
+  
+  res.json(journals.reverse());
+});
+
+// Get pedia wiki pages
+app.get('/api/pedias/:id/wiki', async (req, res) => {
+  const wikiDir = path.join(PEDIAS_DIR, req.params.id, 'wiki', 'people');
+  const files = await listFiles(wikiDir);
+  const pages = files.map(f => ({
+    slug: f.replace('.md', ''),
+    name: f.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+  }));
+  res.json(pages);
+});
+
+// Get specific wiki page
+app.get('/api/pedias/:id/wiki/:slug', async (req, res) => {
+  const pagePath = path.join(PEDIAS_DIR, req.params.id, 'wiki', 'people', `${req.params.slug}.md`);
+  const content = await readMarkdown(pagePath);
+  if (!content) return res.status(404).json({ error: 'page not found' });
+  res.json({ slug: req.params.slug, content });
 });
 
 // Get full graph
@@ -63,7 +143,7 @@ app.get('/api/graph', async (req, res) => {
   res.json({ pedias, connections });
 });
 
-// Legacy endpoints for compatibility
+// Legacy endpoint
 app.get('/api/pairs', async (req, res) => {
   const pedias = await readJSON('pairs.json');
   res.json(pedias);

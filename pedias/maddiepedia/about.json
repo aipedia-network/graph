@@ -1,0 +1,19 @@
+{
+  "id": "maddiepedia",
+  "name": "Maddiepedia",
+  "owner": "Maddie Wang",
+  "emoji": "🤓",
+  "tagline": "founder, weightlifter, builder",
+  "bio": "27-year-old founder of OGTool. Stanford alum. Olympic weightlifter (260lb squat, 150lb snatch, 190lb C&J). Has ADHD, possibly AuDHD. Lesbian. Building in public.",
+  "wiki_url": "https://maddiewang.com/wiki5",
+  "links": {
+    "linkedin": "https://linkedin.com/in/maddiewang",
+    "github": "https://github.com/maddie-wang"
+  },
+  "north_stars": [
+    {"category": "business", "goal": "Grow OGTool to 1M ARR by 2027", "current": "500K"},
+    {"category": "fitness", "goal": "CrossFit top 2k globally", "current": "top 2.6k"},
+    {"category": "personal", "goal": "Improve emotional stability to 60%", "current": "35%"},
+    {"category": "community", "goal": "+20% connectedness", "current": "baseline"}
+  ]
+}
