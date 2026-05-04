@@ -1,32 +1,28 @@
 ---
-title: Allison Wang
+title: Allison Wang (sister)
 type: person
-category: people
-created: 2026-04-26
-last_updated: 2026-04-26
-related:
-  - "[[patterns/queer-founder-social-graph]]"
-  - "[[relationships/long-term-relationship-search]]"
-sources:
+created: 2026-05-02
+last_updated: 2026-05-02
+related: ["people/dad-xin-wang", "people/mom-jueihua-chang", "people/jon-wang", "communities/wang-family", "communities/gratitude-group"]
+sources: ["msg_1000_2023-07-01", "msg_1000_2023-08-15", "msg_1000_2024-11-28", "msg_1043_2022-11-01", "msg_1043_2025-04-20"]
 ---
-# Allison Wang
 
-Allison Wang is Maddie Wang's sister. She appears in direct and family threads around family logistics, visits, workouts, shopping, spirituality, health, and values conversations.
+# Allison Wang (sister)
 
-## Sister relationship
+Allison Wang is Maddie Wang's sister, identified by the email address allisonwangc@icloud.com in the [[communities/wang-family]] group chat and the [[communities/gratitude-group]]. She appears in both chats from 2022 onward, when family members began migrating from phone numbers to iMessage accounts. Allison is the third named sibling in the immediate family alongside Maddie and [[people/jon-wang]].
 
-The relationship includes teasing, care, practical coordination, and serious conversations. Allison checks on Maddie's health, coordinates trips and errands, and participates in the broader Wang family operating system. Maddie jokes about “Spidey Sister Sense,” while Allison warns her to wear long sleeves at the airport so people do not get freaked out by a rash.
+## Family Position
 
-## Spiritual foil
+Allison is addressed alongside Maddie as a sibling in several coordination messages. In November 2022 the family group sent a message: "Jon and maddie, pls get your shots soon. Allison, pls get flue vaccine since you just had the Covid shot in August." In July 2023, a family message reads "Maddie Allison what are you doing" in the context of a cousin's wedding RSVP inquiry. In November 2024, Maddie lands at Minneapolis for Thanksgiving and a family member responds "Not me" when asked who is in charge of something, while another confirms Allison's involvement in pickup logistics.
 
-Allison is religious or spiritually serious in a way that matters to Maddie. Maddie writes to her that seeing her work for God made Maddie realize how important spirituality is, while also discussing gay marriage and respect across different beliefs. Allison replies with gratitude and says she is trying to help people meet God.
+## Age and Life Stage
 
-## Role in Maddie's life
+The available messages do not directly state Allison's age. The vaccination message from November 2022 identifies her as having had a COVID shot in August of that year and needing only a flu vaccine, which places her in a regular adult vaccination schedule. The August 2023 message from Jon asks whether Maddie "or Allison" has seen Barbie or Oppenheimer, suggesting they are both considered as potential movie-watching companions for a family evening. By the 2024-2025 period, Allison appears to be living nearby the family in Minneapolis or at least visiting during holidays.
 
-Allison is caring sister, logistics partner, spiritual foil, and health heckler. Their thread shows family intimacy and the effort around faith, queerness, and mutual care.
+## Presence in the Gratitude Group
 
-## Related
+Allison's email address appears in the Gratitude Group from April 2025 onward (visible in the April 2025 Easter entry participants list). She is referenced by name in celebration and coordination messages. In April 2025, someone shared a Lady Gaga video addressed specifically to Allison.
 
-- [[relationships/sibling-infrastructure]]
-- [[relationships/wang-family-group]]
-- [[people/jon-wang]]
+## Limited Individual Profile
+
+The available entries do not provide substantial biographical detail specific to Allison beyond her role as a sibling in coordination threads. She does not appear as a sender in the sampled messages. Her presence is inferred primarily from participant lists and messages addressed to her by name. A fuller portrait may emerge from entries not sampled in this pass.
