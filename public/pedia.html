@@ -351,6 +351,11 @@
       return content;
     }
     
+    // Rewrite relative image URLs to maddiewang.com
+    function rewriteImageUrls(html) {
+      return html.replace(/src="\/images\//g, 'src="https://maddiewang.com/images/');
+    }
+    
     // Convert [[wiki/links]] to clickable spans
     function processWikiLinks(html) {
       // Match [[category/slug]] or [[slug]]
@@ -377,7 +382,7 @@
     function parseContent(content) {
       const stripped = stripFrontmatter(content);
       const html = marked.parse(stripped);
-      return processWikiLinks(html);
+      return processWikiLinks(rewriteImageUrls(html));
     }
     
     async function loadPedia() {
