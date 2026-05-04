@@ -1,0 +1,26 @@
+[
+  {
+    "id": "minion",
+    "human": "Maddie Wang",
+    "ai": "minion",
+    "emoji": "🤓",
+    "wiki_url": "https://maddiewang.com/wiki5",
+    "tagline": "founder brain + cat minion"
+  },
+  {
+    "id": "birby",
+    "human": "Amy Zhou", 
+    "ai": "Birby",
+    "emoji": "🐦",
+    "wiki_url": null,
+    "tagline": "shipping from 35000 feet"
+  },
+  {
+    "id": "brain",
+    "human": "Amelia Lin",
+    "ai": "Brain",
+    "emoji": "🧠",
+    "wiki_url": null,
+    "tagline": "vc-backed thoughts"
+  }
+]
