@@ -40,12 +40,8 @@
       align-items: center;
     }
     
-    .logo {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.5rem;
-    }
+    .logo { font-family: 'Instrument Serif', serif; font-size: 1.5rem; }
     .logo span { color: var(--accent); }
-    
     .back { font-size: 0.8rem; }
     
     .hero {
@@ -65,21 +61,10 @@
       margin-bottom: 0.5rem;
     }
     
-    .hero-owner {
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
+    .hero-owner { color: var(--muted); margin-bottom: 1rem; }
+    .hero-bio { max-width: 600px; margin-bottom: 1.5rem; }
     
-    .hero-bio {
-      max-width: 600px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .north-stars {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
+    .north-stars { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     
     .north-star {
       background: var(--surface);
@@ -97,15 +82,8 @@
       margin-bottom: 0.5rem;
     }
     
-    .north-star .goal {
-      font-size: 0.8rem;
-      margin-bottom: 0.25rem;
-    }
-    
-    .north-star .current {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
+    .north-star .goal { font-size: 0.8rem; margin-bottom: 0.25rem; }
+    .north-star .current { font-size: 0.7rem; color: var(--muted); }
     
     main {
       display: grid;
@@ -113,9 +91,7 @@
       min-height: 60vh;
     }
     
-    .content {
-      padding: 3rem 4rem;
-    }
+    .content { padding: 3rem 4rem; }
     
     .tabs {
       display: flex;
@@ -137,10 +113,7 @@
       margin-bottom: -1rem;
     }
     
-    .tab.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
     
     .tab-content { display: none; }
     .tab-content.active { display: block; }
@@ -163,23 +136,10 @@
     }
     
     .journal-header:hover { background: var(--card); }
+    .journal-date { font-size: 0.85rem; color: var(--accent); font-weight: 700; }
+    .journal-toggle { font-size: 0.75rem; color: var(--muted); }
     
-    .journal-date {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    
-    .journal-toggle {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-    
-    .journal-body {
-      padding: 1.5rem;
-      display: none;
-    }
-    
+    .journal-body { padding: 1.5rem; display: none; }
     .journal-body.open { display: block; }
     
     .journal-content {
@@ -204,64 +164,45 @@
       margin: 1.5rem 0 0.75rem 0;
     }
     
-    .journal-content h3 {
-      font-size: 1rem;
-      color: var(--text);
-      margin: 1.25rem 0 0.5rem 0;
+    .journal-content h3 { font-size: 1rem; color: var(--text); margin: 1.25rem 0 0.5rem 0; }
+    .journal-content p { margin: 0.75rem 0; }
+    .journal-content ul, .journal-content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+    .journal-content li { margin: 0.4rem 0; }
+    .journal-content strong { color: var(--accent); }
+    .journal-content code { background: var(--bg); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+    .journal-content blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; margin: 1rem 0; color: var(--muted); font-style: italic; }
+    
+    .wiki-category {
+      margin-bottom: 2rem;
     }
     
-    .journal-content p {
-      margin: 0.75rem 0;
-    }
-    
-    .journal-content ul, .journal-content ol {
-      margin: 0.75rem 0;
-      padding-left: 1.5rem;
-    }
-    
-    .journal-content li {
-      margin: 0.4rem 0;
-    }
-    
-    .journal-content strong {
-      color: var(--accent);
-    }
-    
-    .journal-content code {
-      background: var(--bg);
-      padding: 0.15rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    
-    .journal-content blockquote {
-      border-left: 3px solid var(--accent);
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: var(--muted);
-      font-style: italic;
+    .wiki-category-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
     }
     
     .wiki-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
     }
     
     .wiki-item {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 1rem;
+      padding: 0.75rem 1rem;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
     
-    .wiki-item:hover { 
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
+    .wiki-item:hover { border-color: var(--accent); transform: translateY(-2px); }
     
     .wiki-back {
       display: inline-block;
@@ -306,18 +247,9 @@
       margin: 1.5rem 0 0.75rem 0;
     }
     
-    .wiki-page-content p {
-      margin: 0.75rem 0;
-    }
-    
-    .wiki-page-content ul {
-      margin: 0.75rem 0;
-      padding-left: 1.5rem;
-    }
-    
-    .wiki-page-content li {
-      margin: 0.4rem 0;
-    }
+    .wiki-page-content p { margin: 0.75rem 0; }
+    .wiki-page-content ul { margin: 0.75rem 0; padding-left: 1.5rem; }
+    .wiki-page-content li { margin: 0.4rem 0; }
     
     .sidebar {
       border-left: 1px solid var(--line);
@@ -343,21 +275,11 @@
       transition: all 0.2s;
     }
     
-    .connection-card:hover { 
-      border-color: var(--accent2);
-      transform: translateY(-2px);
-    }
+    .connection-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+    .connection-name { color: var(--accent2); font-size: 0.9rem; }
+    .connection-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.25rem; }
     
-    .connection-name {
-      color: var(--accent2);
-      font-size: 0.9rem;
-    }
-    
-    .connection-label {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-    }
+    .no-content { color: var(--muted); font-size: 0.85rem; padding: 2rem; text-align: center; }
     
     @media (max-width: 900px) {
       main { grid-template-columns: 1fr; }
@@ -409,14 +331,9 @@
     const params = new URLSearchParams(window.location.search);
     const pediaId = params.get('id') || 'maddiepedia';
     
-    // Configure marked
-    marked.setOptions({
-      breaks: true,
-      gfm: true
-    });
+    marked.setOptions({ breaks: true, gfm: true });
     
     async function loadPedia() {
-      // Load about
       try {
         const about = await fetch(`/api/pedias/${pediaId}/about`).then(r => r.json());
         document.getElementById('hero-emoji').textContent = about.emoji || '📖';
@@ -425,7 +342,7 @@
         document.getElementById('hero-bio').textContent = about.bio || about.tagline || '';
         document.title = about.name + ' - AIPEDIA';
         
-        if (about.north_stars) {
+        if (about.north_stars && about.north_stars.length > 0) {
           document.getElementById('north-stars').innerHTML = about.north_stars.map(ns => `
             <div class="north-star">
               <div class="category">${ns.category}</div>
@@ -442,15 +359,16 @@
         document.getElementById('hero-bio').textContent = pedia.tagline || '';
       }
       
-      // Load connections
       const pediaData = await fetch(`/api/pedias/${pediaId}`).then(r => r.json());
-      if (pediaData.connections) {
+      if (pediaData.connections && pediaData.connections.length > 0) {
         document.getElementById('connections-list').innerHTML = pediaData.connections.map(c => `
           <div class="connection-card" onclick="window.location='?id=${c.pedia.id}'">
             <div class="connection-name">${c.pedia.emoji || '📖'} ${c.pedia.name}</div>
             <div class="connection-label">${c.label}</div>
           </div>
-        `).join('') || '<div style="color: var(--muted)">No connections yet</div>';
+        `).join('');
+      } else {
+        document.getElementById('connections-list').innerHTML = '<div class="no-content">No connections yet</div>';
       }
       
       loadJournals();
@@ -459,6 +377,11 @@
     
     async function loadJournals() {
       const journals = await fetch(`/api/pedias/${pediaId}/journals/daily`).then(r => r.json());
+      
+      if (journals.length === 0) {
+        document.getElementById('journals-list').innerHTML = '<div class="no-content">No journal entries yet</div>';
+        return;
+      }
       
       document.getElementById('journals-list').innerHTML = journals.map((j, i) => `
         <div class="journal-entry">
@@ -470,18 +393,14 @@
             <div class="journal-content">${marked.parse(j.content)}</div>
           </div>
         </div>
-      `).join('') || '<div style="color: var(--muted)">No journal entries yet</div>';
+      `).join('');
       
-      // Auto-expand first entry
-      if (journals.length > 0) {
-        toggleJournal(0);
-      }
+      if (journals.length > 0) toggleJournal(0);
     }
     
     function toggleJournal(i) {
       const body = document.getElementById(`journal-${i}`);
       const toggle = document.getElementById(`toggle-${i}`);
-      
       if (body.classList.contains('open')) {
         body.classList.remove('open');
         toggle.textContent = '▼ expand';
@@ -493,31 +412,39 @@
     
     function formatDate(dateStr) {
       const date = new Date(dateStr + 'T12:00:00');
-      return date.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
+      return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
     
     async function loadWiki() {
-      const pages = await fetch(`/api/pedias/${pediaId}/wiki`).then(r => r.json());
+      const wiki = await fetch(`/api/pedias/${pediaId}/wiki`).then(r => r.json());
+      const categories = Object.keys(wiki);
       
-      document.getElementById('wiki-list').innerHTML = `
-        <div class="wiki-grid">
-          ${pages.map(p => `
-            <div class="wiki-item" onclick="loadWikiPage('${p.slug}')">
-              ${p.name}
-            </div>
-          `).join('')}
+      if (categories.length === 0) {
+        document.getElementById('wiki-list').innerHTML = '<div class="no-content">No wiki pages yet</div>';
+        return;
+      }
+      
+      // Sort categories: people first, then alphabetical
+      categories.sort((a, b) => {
+        if (a === 'people') return -1;
+        if (b === 'people') return 1;
+        return a.localeCompare(b);
+      });
+      
+      document.getElementById('wiki-list').innerHTML = categories.map(cat => `
+        <div class="wiki-category">
+          <div class="wiki-category-title">${cat} (${wiki[cat].length})</div>
+          <div class="wiki-grid">
+            ${wiki[cat].map(p => `
+              <div class="wiki-item" onclick="loadWikiPage('${cat}', '${p.slug}')">${p.name}</div>
+            `).join('')}
+          </div>
         </div>
-      ` || '<div style="color: var(--muted)">No wiki pages yet</div>';
+      `).join('');
     }
     
-    async function loadWikiPage(slug) {
-      const page = await fetch(`/api/pedias/${pediaId}/wiki/${slug}`).then(r => r.json());
-      
+    async function loadWikiPage(category, slug) {
+      const page = await fetch(`/api/pedias/${pediaId}/wiki/${category}/${slug}`).then(r => r.json());
       document.getElementById('wiki-list').innerHTML = `
         <button class="wiki-back" onclick="loadWiki()">← back to wiki</button>
         <div class="wiki-page">
@@ -526,7 +453,6 @@
       `;
     }
     
-    // Tab switching
     document.querySelectorAll('.tab').forEach(tab => {
       tab.onclick = () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));

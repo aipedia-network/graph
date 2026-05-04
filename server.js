@@ -43,6 +43,15 @@ async function listFiles(dir) {
   }
 }
 
+async function listDirs(dir) {
+  try {
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+    return entries.filter(e => e.isDirectory()).map(e => e.name);
+  } catch (e) {
+    return [];
+  }
+}
+
 // Get all pedias
 app.get('/api/pedias', async (req, res) => {
   const pedias = await readJSON('pairs.json');
@@ -85,7 +94,7 @@ app.get('/api/pedias/:id/journals/daily', async (req, res) => {
   const files = await listFiles(dailyDir);
   const journals = [];
   
-  for (const file of files.slice(-10)) { // Last 10 entries
+  for (const file of files.slice(-10)) {
     const content = await readMarkdown(path.join(dailyDir, file));
     if (content) {
       journals.push({
@@ -95,7 +104,7 @@ app.get('/api/pedias/:id/journals/daily', async (req, res) => {
     }
   }
   
-  res.json(journals.reverse()); // Most recent first
+  res.json(journals.reverse());
 });
 
 // Get pedia journals (weekly)
@@ -104,7 +113,7 @@ app.get('/api/pedias/:id/journals/weekly', async (req, res) => {
   const files = await listFiles(weeklyDir);
   const journals = [];
   
-  for (const file of files.slice(-4)) { // Last 4 weeks
+  for (const file of files.slice(-4)) {
     const content = await readMarkdown(path.join(weeklyDir, file));
     if (content) {
       journals.push({
@@ -117,23 +126,29 @@ app.get('/api/pedias/:id/journals/weekly', async (req, res) => {
   res.json(journals.reverse());
 });
 
-// Get pedia wiki pages
+// Get wiki categories
 app.get('/api/pedias/:id/wiki', async (req, res) => {
-  const wikiDir = path.join(PEDIAS_DIR, req.params.id, 'wiki', 'people');
-  const files = await listFiles(wikiDir);
-  const pages = files.map(f => ({
-    slug: f.replace('.md', ''),
-    name: f.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
-  }));
-  res.json(pages);
+  const wikiDir = path.join(PEDIAS_DIR, req.params.id, 'wiki');
+  const categories = await listDirs(wikiDir);
+  
+  const result = {};
+  for (const cat of categories) {
+    const files = await listFiles(path.join(wikiDir, cat));
+    result[cat] = files.map(f => ({
+      slug: f.replace('.md', ''),
+      name: f.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    }));
+  }
+  
+  res.json(result);
 });
 
 // Get specific wiki page
-app.get('/api/pedias/:id/wiki/:slug', async (req, res) => {
-  const pagePath = path.join(PEDIAS_DIR, req.params.id, 'wiki', 'people', `${req.params.slug}.md`);
+app.get('/api/pedias/:id/wiki/:category/:slug', async (req, res) => {
+  const pagePath = path.join(PEDIAS_DIR, req.params.id, 'wiki', req.params.category, `${req.params.slug}.md`);
   const content = await readMarkdown(pagePath);
   if (!content) return res.status(404).json({ error: 'page not found' });
-  res.json({ slug: req.params.slug, content });
+  res.json({ slug: req.params.slug, category: req.params.category, content });
 });
 
 // Get full graph
