@@ -429,7 +429,7 @@
         ).length;
         
         return `
-          <div class="pedia-card" onclick="showDetail('${pedia.id}')">
+          <div class="pedia-card" onclick="window.location='/pedia.html?id=${pedia.id}'">
             <div class="emoji">${pedia.emoji || '📖'}</div>
             <div class="name">${pedia.name || pedia.id}</div>
             <div class="owner">by ${pedia.owner || pedia.human || 'unknown'}</div>
