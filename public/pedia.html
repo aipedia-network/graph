@@ -353,7 +353,7 @@
     
     // Rewrite relative image URLs to maddiewang.com
     function rewriteImageUrls(html) {
-      return html.replace(/src="\/images\//g, 'src="https://maddiewang.com/images/');
+      return html; // images served locally now
     }
     
     // Convert [[wiki/links]] to clickable spans
