@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
     
-    /* noise overlay */
     body::before {
       content: '';
       position: fixed;
@@ -54,9 +53,7 @@
       letter-spacing: -0.02em;
     }
     
-    h1 span {
-      color: var(--accent);
-    }
+    h1 span { color: var(--accent); }
     
     .tagline {
       color: var(--muted);
@@ -67,11 +64,10 @@
     
     main {
       display: grid;
-      grid-template-columns: 1fr 400px;
+      grid-template-columns: 1fr 380px;
       min-height: calc(100vh - 120px);
     }
     
-    /* Graph visualization area */
     .graph-container {
       position: relative;
       padding: 4rem;
@@ -111,23 +107,18 @@
       box-shadow: 0 0 30px var(--glow);
     }
     
-    .node-emoji {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+    .node-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    
+    .node-name {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 700;
     }
     
-    .node-names {
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-    }
-    
-    .node-names .human {
-      color: var(--text);
-    }
-    
-    .node-names .ai {
-      color: var(--accent2);
+    .node-owner {
       font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
     }
     
     .node-tagline {
@@ -136,7 +127,6 @@
       margin-top: 0.5rem;
     }
     
-    /* Connection lines drawn in SVG */
     #connections-svg {
       position: absolute;
       inset: 0;
@@ -156,7 +146,6 @@
       font-family: 'Space Mono', monospace;
     }
     
-    /* Sidebar */
     .sidebar {
       border-left: 1px solid var(--line);
       padding: 2rem;
@@ -171,7 +160,7 @@
       color: var(--muted);
     }
     
-    .pair-card {
+    .pedia-card {
       background: var(--bg);
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -181,51 +170,41 @@
       transition: all 0.2s ease;
     }
     
-    .pair-card:hover {
-      border-color: var(--accent);
-    }
+    .pedia-card:hover { border-color: var(--accent); }
     
-    .pair-card .emoji {
-      font-size: 1.25rem;
-    }
+    .pedia-card .emoji { font-size: 1.25rem; }
     
-    .pair-card .names {
-      display: flex;
-      gap: 0.5rem;
-      align-items: baseline;
+    .pedia-card .name {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 700;
       margin-top: 0.5rem;
     }
     
-    .pair-card .human {
-      font-size: 0.85rem;
-    }
-    
-    .pair-card .ai {
+    .pedia-card .owner {
       font-size: 0.7rem;
-      color: var(--accent2);
+      color: var(--muted);
+      margin-top: 0.25rem;
     }
     
-    .pair-card .wiki-link {
+    .pedia-card .wiki-link {
       display: inline-block;
       margin-top: 0.75rem;
       font-size: 0.65rem;
-      color: var(--accent);
+      color: var(--accent2);
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
     
-    .pair-card .wiki-link:hover {
-      text-decoration: underline;
-    }
+    .pedia-card .wiki-link:hover { text-decoration: underline; }
     
-    .pair-card .connections-count {
+    .pedia-card .connections-count {
       font-size: 0.65rem;
       color: var(--muted);
       margin-top: 0.5rem;
     }
     
-    /* Detail panel */
     .detail-panel {
       display: none;
       position: fixed;
@@ -241,9 +220,7 @@
       animation: slideIn 0.3s ease;
     }
     
-    .detail-panel.active {
-      display: block;
-    }
+    .detail-panel.active { display: block; }
     
     @keyframes slideIn {
       from { transform: translateX(100%); opacity: 0; }
@@ -261,19 +238,17 @@
       cursor: pointer;
     }
     
-    .detail-emoji {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+    .detail-emoji { font-size: 3rem; margin-bottom: 1rem; }
     
-    .detail-names h3 {
+    .detail-name {
       font-family: 'Instrument Serif', serif;
       font-size: 1.75rem;
       font-weight: 400;
+      color: var(--accent);
     }
     
-    .detail-names .ai-name {
-      color: var(--accent2);
+    .detail-owner {
+      color: var(--muted);
       font-size: 0.9rem;
       margin-top: 0.25rem;
     }
@@ -299,9 +274,7 @@
       transition: all 0.2s ease;
     }
     
-    .detail-wiki:hover {
-      background: var(--text);
-    }
+    .detail-wiki:hover { background: var(--text); }
     
     .detail-connections {
       margin-top: 2rem;
@@ -322,12 +295,11 @@
       border-bottom: 1px solid var(--line);
     }
     
-    .connection-item:last-child {
-      border-bottom: none;
-    }
+    .connection-item:last-child { border-bottom: none; }
     
     .connection-item .other-name {
       font-size: 0.85rem;
+      color: var(--accent);
     }
     
     .connection-item .label {
@@ -336,27 +308,17 @@
       margin-top: 0.25rem;
     }
     
-    /* Responsive */
     @media (max-width: 900px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        border-left: none;
-        border-top: 1px solid var(--line);
-      }
-      header {
-        padding: 2rem;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+      main { grid-template-columns: 1fr; }
+      .sidebar { border-left: none; border-top: 1px solid var(--line); }
+      header { padding: 2rem; flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>AI<span>PEDIA</span></h1>
-    <div class="tagline">relationship graph • connecting personal wikis</div>
+    <div class="tagline">connecting personal wikis</div>
   </header>
   
   <main>
@@ -366,34 +328,35 @@
     </div>
     
     <aside class="sidebar">
-      <h2>All Pairs</h2>
-      <div id="pairs-list"></div>
+      <h2>All Pedias</h2>
+      <div id="pedias-list"></div>
     </aside>
   </main>
   
   <div class="detail-panel" id="detail-panel">
     <button class="detail-close" onclick="closeDetail()">×</button>
     <div class="detail-emoji" id="detail-emoji"></div>
-    <div class="detail-names">
-      <h3 id="detail-human"></h3>
-      <div class="ai-name">+ <span id="detail-ai"></span></div>
-    </div>
+    <div class="detail-name" id="detail-name"></div>
+    <div class="detail-owner">by <span id="detail-owner"></span></div>
     <div class="detail-tagline" id="detail-tagline"></div>
     <a class="detail-wiki" id="detail-wiki" href="#" target="_blank">Visit Wiki →</a>
     <div class="detail-connections">
-      <h4>Connections</h4>
+      <h4>Connected To</h4>
       <div id="detail-connections-list"></div>
     </div>
   </div>
   
   <script>
-    let graphData = { pairs: [], connections: [] };
+    let graphData = { pedias: [], connections: [] };
     
     async function loadGraph() {
       const res = await fetch('/api/graph');
-      graphData = await res.json();
+      const data = await res.json();
+      // Handle both old (pairs) and new (pedias) format
+      graphData.pedias = data.pedias || data.pairs || [];
+      graphData.connections = data.connections || [];
       renderGraph();
-      renderPairsList();
+      renderPediasList();
     }
     
     function renderGraph() {
@@ -406,17 +369,16 @@
       svg.setAttribute('height', rect.height);
       svg.innerHTML = '';
       
-      // Position nodes in a circle
       const cx = rect.width / 2;
       const cy = rect.height / 2;
       const radius = Math.min(cx, cy) * 0.6;
       
       const positions = {};
-      graphData.pairs.forEach((pair, i) => {
-        const angle = (i / graphData.pairs.length) * Math.PI * 2 - Math.PI / 2;
+      graphData.pedias.forEach((pedia, i) => {
+        const angle = (i / graphData.pedias.length) * Math.PI * 2 - Math.PI / 2;
         const x = cx + Math.cos(angle) * radius;
         const y = cy + Math.sin(angle) * radius;
-        positions[pair.id] = { x, y };
+        positions[pedia.id] = { x, y };
         
         const node = document.createElement('div');
         node.className = 'node';
@@ -424,19 +386,16 @@
         node.style.top = `${y - 50}px`;
         node.innerHTML = `
           <div class="node-inner">
-            <div class="node-emoji">${pair.emoji || '🤖'}</div>
-            <div class="node-names">
-              <span class="human">${pair.human}</span>
-              <div class="ai">+ ${pair.ai}</div>
-            </div>
-            <div class="node-tagline">${pair.tagline || ''}</div>
+            <div class="node-emoji">${pedia.emoji || '📖'}</div>
+            <div class="node-name">${pedia.name || pedia.id}</div>
+            <div class="node-owner">${pedia.owner || pedia.human || ''}</div>
+            <div class="node-tagline">${pedia.tagline || ''}</div>
           </div>
         `;
-        node.onclick = () => showDetail(pair.id);
+        node.onclick = () => showDetail(pedia.id);
         container.appendChild(node);
       });
       
-      // Draw connection lines
       graphData.connections.forEach(conn => {
         const from = positions[conn.from];
         const to = positions[conn.to];
@@ -450,7 +409,6 @@
         line.setAttribute('class', 'connection-line');
         svg.appendChild(line);
         
-        // Label at midpoint
         const mx = (from.x + to.x) / 2;
         const my = (from.y + to.y) / 2;
         const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -458,26 +416,24 @@
         label.setAttribute('y', my);
         label.setAttribute('class', 'connection-label');
         label.setAttribute('text-anchor', 'middle');
-        label.textContent = conn.label.split(',')[0]; // Just first label
+        label.textContent = conn.label.split(',')[0];
         svg.appendChild(label);
       });
     }
     
-    function renderPairsList() {
-      const list = document.getElementById('pairs-list');
-      list.innerHTML = graphData.pairs.map(pair => {
+    function renderPediasList() {
+      const list = document.getElementById('pedias-list');
+      list.innerHTML = graphData.pedias.map(pedia => {
         const connCount = graphData.connections.filter(
-          c => c.from === pair.id || c.to === pair.id
+          c => c.from === pedia.id || c.to === pedia.id
         ).length;
         
         return `
-          <div class="pair-card" onclick="showDetail('${pair.id}')">
-            <div class="emoji">${pair.emoji || '🤖'}</div>
-            <div class="names">
-              <span class="human">${pair.human}</span>
-              <span class="ai">+ ${pair.ai}</span>
-            </div>
-            ${pair.wiki_url ? `<a class="wiki-link" href="${pair.wiki_url}" target="_blank" onclick="event.stopPropagation()">View Wiki</a>` : ''}
+          <div class="pedia-card" onclick="showDetail('${pedia.id}')">
+            <div class="emoji">${pedia.emoji || '📖'}</div>
+            <div class="name">${pedia.name || pedia.id}</div>
+            <div class="owner">by ${pedia.owner || pedia.human || 'unknown'}</div>
+            ${pedia.url ? `<a class="wiki-link" href="${pedia.url}" target="_blank" onclick="event.stopPropagation()">View Wiki</a>` : ''}
             <div class="connections-count">${connCount} connection${connCount !== 1 ? 's' : ''}</div>
           </div>
         `;
@@ -485,26 +441,34 @@
     }
     
     async function showDetail(id) {
-      const res = await fetch(`/api/pairs/${id}`);
-      const pair = await res.json();
+      const pedia = graphData.pedias.find(p => p.id === id);
+      if (!pedia) return;
       
-      document.getElementById('detail-emoji').textContent = pair.emoji || '🤖';
-      document.getElementById('detail-human').textContent = pair.human;
-      document.getElementById('detail-ai').textContent = pair.ai;
-      document.getElementById('detail-tagline').textContent = pair.tagline || '';
+      document.getElementById('detail-emoji').textContent = pedia.emoji || '📖';
+      document.getElementById('detail-name').textContent = pedia.name || pedia.id;
+      document.getElementById('detail-owner').textContent = pedia.owner || pedia.human || 'unknown';
+      document.getElementById('detail-tagline').textContent = pedia.tagline || '';
       
       const wikiLink = document.getElementById('detail-wiki');
-      if (pair.wiki_url) {
-        wikiLink.href = pair.wiki_url;
+      if (pedia.url) {
+        wikiLink.href = pedia.url;
         wikiLink.style.display = 'inline-block';
       } else {
         wikiLink.style.display = 'none';
       }
       
+      const connections = graphData.connections
+        .filter(c => c.from === id || c.to === id)
+        .map(c => {
+          const otherId = c.from === id ? c.to : c.from;
+          const other = graphData.pedias.find(p => p.id === otherId);
+          return { pedia: other, label: c.label };
+        });
+      
       const connList = document.getElementById('detail-connections-list');
-      connList.innerHTML = pair.connections.map(c => `
+      connList.innerHTML = connections.map(c => `
         <div class="connection-item">
-          <div class="other-name">${c.pair.emoji || '🤖'} ${c.pair.human} + ${c.pair.ai}</div>
+          <div class="other-name">${c.pedia?.emoji || '📖'} ${c.pedia?.name || 'unknown'}</div>
           <div class="label">${c.label}</div>
         </div>
       `).join('') || '<div style="color: var(--muted); font-size: 0.8rem;">No connections yet</div>';
